@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/x-icon" href="img/logos/favicon.ico">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Manuales | PAPIME PE101825 · FI UNAM</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+  <style>
+    .recursos-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 18px;
+    }
+    .recurso-card {
+      background: var(--blanco);
+      border: 1px solid var(--gris-borde);
+      border-radius: 12px;
+      padding: 20px 22px 22px;
+      display: flex; flex-direction: column; gap: 12px;
+      transition: box-shadow 0.2s, border-color 0.2s;
+    }
+    .recurso-card:hover {
+      border-color: var(--azul-accent);
+      box-shadow: 0 4px 16px rgba(58,107,191,0.1);
+    }
+    .recurso-icon {
+      width: 46px; height: 46px; border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 24px; flex-shrink: 0;
+    }
+    .icon-pdf   { background: #fdeaea; color: #c0392b; }
+    .icon-video { background: #eaf0fd; color: var(--azul-accent); }
+    .icon-doc   { background: #eafaf1; color: #27ae60; }
+    .icon-link  { background: #fdf6ea; color: #e67e22; }
+
+    .recurso-titulo {
+      font-size: 14.5px; font-weight: 700;
+      color: var(--texto-body); margin-bottom: 4px;
+    }
+    .recurso-desc {
+      font-size: 13px; color: var(--texto-sec); line-height: 1.6;
+    }
+    .recurso-meta {
+      font-size: 11.5px; color: #aaa;
+      display: flex; align-items: center; gap: 6px;
+    }
+    .btn-descargar {
+      display: inline-flex; align-items: center; gap: 7px;
+      padding: 8px 16px; border-radius: 7px;
+      font-size: 12.5px; font-weight: 700;
+      background: var(--azul-claro); color: var(--azul-oscuro);
+      border: 1px solid var(--azul-border);
+      text-decoration: none; margin-top: auto;
+      width: fit-content;
+      transition: background 0.15s;
+    }
+    .btn-descargar:hover { background: var(--azul-border); }
+
+    .categoria-titulo {
+      font-size: 11px; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--azul-accent); margin: 32px 0 16px;
+    }
+    .categoria-titulo:first-of-type { margin-top: 0; }
+  </style>
+</head>
+<body>
+
+  <!-- ══════════ TOPBAR ══════════ -->
+  <header class="topbar">
+    <div class="topbar-logos">
+      <img src="img/logos/facultadinge.png" alt="Facultad de Ingeniería UNAM" style="height:54px;width:auto;">
+    </div>
+    <div class="topbar-title">
+      <p class="proyecto-tag">Proyecto PAPIME PE101825</p>
+      <h1>Creación de un espacio inmersivo virtual con material educativo digital<br>
+          usando metaversos para la docencia de las Ciencias de la Tierra</h1>
+    </div>
+    <div class="topbar-logos">
+      <img src="img/logos/dgpalogo.png" alt="DGAPA UNAM" style="height:54px;width:auto;filter:brightness(0) invert(1);opacity:0.9;">
+    </div>
+  </header>
+
+  <!-- ══════════ NAVBAR ══════════ -->
+  <nav class="main-nav">
+    <a href="index.html">Inicio</a>
+    <a href="proyecto.html">Proyecto</a>
+    <a href="aulas-virtuales.html">Aulas virtuales</a>
+    <a href="practica-virtual.html">Multimedia</a>
+    <a href="modelos-3d.html">Modelos 3D</a>
+    <a href="manuales.html" class="active">Manuales</a>
+  </nav>
+
+  <!-- ══════════ HERO ══════════ -->
+  <div class="page-hero">
+    <p class="breadcrumb">Inicio &rsaquo; Manuales y recursos educativos</p>
+    <h2>Manuales y recursos educativos</h2>
+    <p class="hero-sub">Fichas PDF · Guías de campo · Material de apoyo docente</p>
+  </div>
+
+  <!-- ══════════ CONTENIDO ══════════ -->
+  <main class="container">
+
+    <!-- Manuales de prácticas -->
+    <p class="categoria-titulo">Manuales de prácticas de campo</p>
+    <div class="recursos-grid">
+
+      <div class="recurso-card">
+        <div class="recurso-icon icon-pdf"><i class="ti ti-file-type-pdf"></i></div>
+        <div>
+          <p class="recurso-titulo">Guía de Práctica Virtual — Humock</p>
+          <p class="recurso-desc">Ficha de campo con descripción geológica, observaciones y actividades de la Estación 1.</p>
+          <p class="recurso-meta"><i class="ti ti-file"></i> PDF · Estación 1</p>
+        </div>
+        <!-- Sustituye href="#" por la ruta real del PDF -->
+        <a class="btn-descargar" href="#" target="_blank">
+          <i class="ti ti-download"></i> Descargar ficha
+        </a>
+      </div>
+
+      <div class="recurso-card">
+        <div class="recurso-icon icon-pdf"><i class="ti ti-file-type-pdf"></i></div>
+        <div>
+          <p class="recurso-titulo">Guía de Práctica Virtual — Laguna Atexcac</p>
+          <p class="recurso-desc">Ficha de campo con descripción geológica y actividades de la Estación 2.</p>
+          <p class="recurso-meta"><i class="ti ti-file"></i> PDF · Estación 2</p>
+        </div>
+        <a class="btn-descargar" href="#" target="_blank">
+          <i class="ti ti-download"></i> Descargar ficha
+        </a>
+      </div>
+
+      <div class="recurso-card">
+        <div class="recurso-icon icon-pdf"><i class="ti ti-file-type-pdf"></i></div>
+        <div>
+          <p class="recurso-titulo">Guía de Práctica Virtual — Laguna La Preciosa</p>
+          <p class="recurso-desc">Ficha de campo correspondiente a la Estación 3.</p>
+          <p class="recurso-meta"><i class="ti ti-file"></i> PDF · Estación 3</p>
+        </div>
+        <a class="btn-descargar" href="#" target="_blank">
+          <i class="ti ti-download"></i> Descargar ficha
+        </a>
+      </div>
+
+      <div class="recurso-card">
+        <div class="recurso-icon icon-pdf"><i class="ti ti-file-type-pdf"></i></div>
+        <div>
+          <p class="recurso-titulo">Guía de Práctica Virtual — Mina La Preciosa</p>
+          <p class="recurso-desc">Ficha de campo correspondiente a la Estación 4.</p>
+          <p class="recurso-meta"><i class="ti ti-file"></i> PDF · Estación 4</p>
+        </div>
+        <a class="btn-descargar" href="#" target="_blank">
+          <i class="ti ti-download"></i> Descargar ficha
+        </a>
+      </div>
+
+      <div class="recurso-card">
+        <div class="recurso-icon icon-pdf"><i class="ti ti-file-type-pdf"></i></div>
+        <div>
+          <p class="recurso-titulo">Guía de Práctica Virtual — Laguna Aljojuca</p>
+          <p class="recurso-desc">Ficha de campo correspondiente a la Estación 5.</p>
+          <p class="recurso-meta"><i class="ti ti-file"></i> PDF · Estación 5</p>
+        </div>
+        <a class="btn-descargar" href="#" target="_blank">
+          <i class="ti ti-download"></i> Descargar ficha
+        </a>
+      </div>
+
+      <div class="recurso-card">
+        <div class="recurso-icon icon-pdf"><i class="ti ti-file-type-pdf"></i></div>
+        <div>
+          <p class="recurso-titulo">Guía de Práctica Virtual — Cráter San Isidro</p>
+          <p class="recurso-desc">Ficha de campo correspondiente a la Estación 6.</p>
+          <p class="recurso-meta"><i class="ti ti-file"></i> PDF · Estación 6</p>
+        </div>
+        <a class="btn-descargar" href="#" target="_blank">
+          <i class="ti ti-download"></i> Descargar ficha
+        </a>
+      </div>
+
+      <div class="recurso-card">
+        <div class="recurso-icon icon-pdf"><i class="ti ti-file-type-pdf"></i></div>
+        <div>
+          <p class="recurso-titulo">Guía de Práctica Virtual — Lahar San Isidro</p>
+          <p class="recurso-desc">Ficha de campo correspondiente a la Estación 7.</p>
+          <p class="recurso-meta"><i class="ti ti-file"></i> PDF · Estación 7</p>
+        </div>
+        <a class="btn-descargar" href="#" target="_blank">
+          <i class="ti ti-download"></i> Descargar ficha
+        </a>
+      </div>
+
+      <div class="recurso-card">
+        <div class="recurso-icon icon-pdf"><i class="ti ti-file-type-pdf"></i></div>
+        <div>
+          <p class="recurso-titulo">Guía de Práctica Virtual — Cráter Tecuitlapa</p>
+          <p class="recurso-desc">Ficha de campo correspondiente a la Estación 8.</p>
+          <p class="recurso-meta"><i class="ti ti-file"></i> PDF · Estación 8</p>
+        </div>
+        <a class="btn-descargar" href="#" target="_blank">
+          <i class="ti ti-download"></i> Descargar ficha
+        </a>
+      </div>
+
+    </div><!-- /recursos-grid -->
+
+    <!-- Material de apoyo docente -->
+    <p class="categoria-titulo">Material de apoyo docente</p>
+    <div class="recursos-grid">
+
+      <div class="recurso-card">
+        <div class="recurso-icon icon-doc"><i class="ti ti-file-text"></i></div>
+        <div>
+          <p class="recurso-titulo">Manual de usuario — Aulas virtuales</p>
+          <p class="recurso-desc">Guía de acceso y navegación en los metaversos de Spatial.io para profesores y alumnos.</p>
+          <p class="recurso-meta"><i class="ti ti-file"></i> PDF · Guía de uso</p>
+        </div>
+        <a class="btn-descargar" href="#" target="_blank">
+          <i class="ti ti-download"></i> Descargar manual
+        </a>
+      </div>
+
+      <div class="recurso-card">
+        <div class="recurso-icon icon-video"><i class="ti ti-video"></i></div>
+        <div>
+          <p class="recurso-titulo">Videos de apoyo</p>
+          <p class="recurso-desc">Colección de videos educativos alojados en YouTube para complementar el material de cada aula virtual.</p>
+          <p class="recurso-meta"><i class="ti ti-brand-youtube"></i> YouTube</p>
+        </div>
+        <a class="btn-descargar" href="practica-virtual.html">
+          <i class="ti ti-external-link"></i> Ver en Multimedia
+        </a>
+      </div>
+
+      <!--
+        Agrega más recursos copiando el bloque .recurso-card y ajustando:
+          - Clase del icono: icon-pdf, icon-video, icon-doc, icon-link
+          - Título, descripción, metadato
+          - href del botón de descarga
+      -->
+
+    </div>
+
+  </main>
+
+  <!-- ══════════ FOOTER ══════════ -->
+  <footer>
+    <div class="footer-inner">
+
+      <div class="footer-col footer-logos">
+        <img src="img/logos/logofooter.png" alt="Facultad de Ingeniería UNAM" class="footer-logo-img">
+        <img src="img/logos/dgpalogo.png" alt="DGAPA UNAM" class="footer-logo-img footer-dgapa-img">
+      </div>
+
+      <div class="footer-col footer-contacto">
+        <p class="footer-inst">Universidad Nacional Autónoma de México</p>
+        <p><strong>Facultad de Ingeniería</strong></p>
+        <p>Av. Universidad 3000, Ciudad Universitaria,<br>Coyoacán, Cd. Mx., CP 04510</p>
+        <p><strong>Teléfono:</strong> 56 22 08 66</p>
+        <p><strong>Email:</strong> fainge@unam.mx</p>
+        <p class="footer-proyecto">Proyecto PAPIME PE101825 &middot; Convocatoria 2026</p>
+      </div>
+
+      <div class="footer-col footer-redes">
+        <p class="footer-siguenos">Síguenos</p>
+        <div class="footer-icons">
+          <a href="https://www.facebook.com/FacultadIngenieriaUNAM" target="_blank" rel="noopener" aria-label="Facebook">
+            <img src="img/redes/facebook.png" alt="Facebook FI UNAM">
+          </a>
+          <a href="https://x.com/FIUNAM_MX" target="_blank" rel="noopener" aria-label="X Twitter">
+            <img src="img/redes/twitter.png" alt="X Twitter FI UNAM">
+          </a>
+          <a href="https://www.youtube.com/user/TVIngenieria" target="_blank" rel="noopener" aria-label="YouTube">
+            <img src="img/redes/youtube.png" alt="YouTube FI UNAM">
+          </a>
+          <a href="http://www.instagram.com/fiunam_mx/" target="_blank" rel="noopener" aria-label="Instagram">
+            <img src="img/redes/instagram.png" alt="Instagram FI UNAM">
+          </a>
+        </div>
+        <a href="https://www.ingenieria.unam.mx/aviso_privacidad.php"
+           target="_blank" class="footer-aviso">Aviso de Privacidad</a>
+      </div>
+
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

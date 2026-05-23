@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/x-icon" href="img/logos/favicon.ico">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aulas Virtuales | PAPIME PE101825 · FI UNAM</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+  <style>
+    .aulas-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+      gap: 22px;
+    }
+    .aula-card {
+      background: var(--blanco);
+      border: 1px solid var(--gris-borde);
+      border-radius: 14px;
+      overflow: hidden;
+      transition: box-shadow 0.2s, border-color 0.2s;
+    }
+    .aula-card:hover {
+      border-color: var(--azul-accent);
+      box-shadow: 0 6px 24px rgba(58,107,191,0.13);
+    }
+    .aula-preview {
+      width: 100%; height: 200px;
+      object-fit: cover;
+      display: block;
+      background: #1a2744;
+    }
+    /* Placeholder cuando no hay captura */
+    .aula-preview-ph {
+      width: 100%; height: 200px;
+      background: linear-gradient(135deg, #1a2744 0%, #22304e 60%, #3a6bbf 100%);
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      gap: 10px; color: rgba(255,255,255,0.55);
+    }
+    .aula-preview-ph i { font-size: 48px; }
+    .aula-preview-ph span { font-size: 13px; letter-spacing: 0.04em; }
+
+    .aula-body { padding: 20px 22px 22px; }
+    .aula-numero {
+      font-size: 11px; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--azul-accent); margin-bottom: 6px;
+    }
+    .aula-body h3 { font-size: 17px; font-weight: 700; margin-bottom: 10px; }
+    .aula-body p  { font-size: 13.5px; color: var(--texto-sec); line-height: 1.7; margin-bottom: 16px; }
+    .btn-spatial {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--azul-accent); color: #fff;
+      padding: 10px 20px; border-radius: 8px;
+      font-size: 13px; font-weight: 700;
+      text-decoration: none;
+      transition: opacity 0.15s, transform 0.1s;
+    }
+    .btn-spatial:hover { opacity: 0.88; transform: translateY(-1px); }
+
+    .intro-card {
+      background: var(--azul-claro);
+      border: 1px solid var(--azul-border);
+      border-radius: 12px;
+      padding: 22px 26px;
+      font-size: 14px;
+      color: var(--texto-sec);
+      line-height: 1.75;
+      margin-bottom: 32px;
+      display: flex; gap: 16px; align-items: flex-start;
+    }
+    .intro-card i { font-size: 28px; color: var(--azul-accent); flex-shrink: 0; margin-top: 2px; }
+  </style>
+</head>
+<body>
+
+  <!-- ══════════ TOPBAR ══════════ -->
+  <header class="topbar">
+    <div class="topbar-logos">
+      <img src="img/logos/facultadinge.png" alt="Facultad de Ingeniería UNAM" style="height:54px;width:auto;">
+    </div>
+    <div class="topbar-title">
+      <p class="proyecto-tag">Proyecto PAPIME PE101825</p>
+      <h1>Creación de un espacio inmersivo virtual con material educativo digital<br>
+          usando metaversos para la docencia de las Ciencias de la Tierra</h1>
+    </div>
+    <div class="topbar-logos">
+      <img src="img/logos/dgpalogo.png" alt="DGAPA UNAM" style="height:54px;width:auto;filter:brightness(0) invert(1);opacity:0.9;">
+    </div>
+  </header>
+
+  <!-- ══════════ NAVBAR ══════════ -->
+  <nav class="main-nav">
+    <a href="index.html">Inicio</a>
+    <a href="proyecto.html">Proyecto</a>
+    <a href="aulas-virtuales.html" class="active">Aulas virtuales</a>
+    <a href="practica-virtual.html">Multimedia</a>
+    <a href="modelos-3d.html">Modelos 3D</a>
+    <a href="manuales.html">Manuales</a>
+  </nav>
+
+  <!-- ══════════ HERO ══════════ -->
+  <div class="page-hero">
+    <p class="breadcrumb">Inicio &rsaquo; Aulas virtuales</p>
+    <h2>Aulas virtuales</h2>
+    <p class="hero-sub">3 mundos inmersivos en Spatial.io · Geología · Ambientes Sedimentarios · Geomorfología</p>
+  </div>
+
+  <!-- ══════════ CONTENIDO ══════════ -->
+  <main class="container">
+
+    <div class="intro-card">
+      <i class="ti ti-planet"></i>
+      <div>
+        Explora los tres mundos virtuales del proyecto, construidos en <strong>Spatial.io</strong>.
+        Accede desde cualquier dispositivo —laptop, tableta o celular— sin necesidad de instalar
+        software adicional. Cada aula integra infografías, modelos 3D y material educativo
+        interactivo para la enseñanza de las Ciencias de la Tierra.
+      </div>
+    </div>
+
+    <div class="aulas-grid">
+
+      <!-- AULA 1: Geología y Mineralogía -->
+      <div class="aula-card">
+        <img class="aula-preview" src="img/aulas/AULA1_MINERALOGIAYGEOLOGIA.png"
+             alt="Aula virtual de Geología y Mineralogía en Spatial.io — avatar explorando museo con dinosaurio y paneles de información">
+        <div class="aula-body">
+          <p class="aula-numero">Aula virtual 1</p>
+          <h3>Geología y Mineralogía</h3>
+          <p>
+            Espacio inmersivo dedicado al estudio de minerales, rocas y procesos geológicos.
+            Incluye modelos 3D de minerales, infografías interactivas y recorridos por
+            formaciones geológicas representativas.
+          </p>
+          <a class="btn-spatial"
+             href="https://www.spatial.io/s/Museo-66f9f50bc49a36d6cb2cf9f9?share=135306810021644784"
+             target="_blank" rel="noopener noreferrer">
+            <i class="ti ti-external-link"></i> Entrar al aula
+          </a>
+        </div>
+      </div>
+
+      <!-- AULA 2: Geomorfología -->
+      <div class="aula-card">
+        <img class="aula-preview" src="img/aulas/AULA2_GEOMORFOLOGIA.png"
+             alt="Aula virtual de Geomorfología en Spatial.io — avatar en plataforma sobre el agua con escaleras y árboles">
+        <div class="aula-body">
+          <p class="aula-numero">Aula virtual 2</p>
+          <h3>Geomorfología</h3>
+          <p>
+            Mundo virtual enfocado en las formas del relieve terrestre y los procesos
+            que las originan. Incluye recorridos por la Península de Baja California Sur
+            y animaciones de procesos erosivos y volcánicos.
+          </p>
+          <a class="btn-spatial"
+             href="https://www.spatial.io/s/Guion-de-Campo-Peninsula-de-Baja-California-Sur-66fc4632fc0f430ec9778193?share=6126420002531693144"
+             target="_blank" rel="noopener noreferrer">
+            <i class="ti ti-external-link"></i> Entrar al aula
+          </a>
+        </div>
+      </div>
+
+      <!-- AULA 3: Ambientes Sedimentarios -->
+      <div class="aula-card">
+        <img class="aula-preview" src="img/aulas/AULA3_VIRTUAL.png"
+             alt="Aula virtual de Ambientes Sedimentarios en Spatial.io — galería oscura con paneles iluminados y destellos dorados">
+        <div class="aula-body">
+          <p class="aula-numero">Aula virtual 3</p>
+          <h3>Ambientes Sedimentarios</h3>
+          <p>
+            Museo virtual (Museo_FI) dedicado a los distintos ambientes de depositación
+            sedimentaria. Exhibe rocas, fósiles, texturas y estructuras sedimentarias
+            en un entorno inmersivo de galería museográfica.
+          </p>
+          <a class="btn-spatial"
+             href="https://www.spatial.io/s/Museo_FI-67ed984de0b59a4d9e562802?share=677031309720673780"
+             target="_blank" rel="noopener noreferrer">
+            <i class="ti ti-external-link"></i> Entrar al aula
+          </a>
+        </div>
+      </div>
+
+    </div><!-- /aulas-grid -->
+
+    <!-- Nota de acceso -->
+    <div class="content-card mt-32">
+      <p class="section-label">Cómo acceder</p>
+      <h3>Instrucciones de acceso</h3>
+      <p class="mt-8">
+        Los mundos virtuales están alojados en <strong>Spatial.io</strong> y son de acceso libre.
+        Para la mejor experiencia se recomienda usar una computadora con navegador actualizado
+        (Chrome o Edge). También pueden visitarse desde tabletas y teléfonos celulares.
+        No se requiere crear una cuenta para explorar los espacios.
+      </p>
+    </div>
+
+  </main>
+
+  <!-- ══════════ FOOTER ══════════ -->
+  <footer>
+    <div class="footer-inner">
+
+      <div class="footer-col footer-logos">
+        <img src="img/logos/logofooter.png" alt="Facultad de Ingeniería UNAM" class="footer-logo-img">
+        <img src="img/logos/dgpalogo.png" alt="DGAPA UNAM" class="footer-logo-img footer-dgapa-img">
+      </div>
+
+      <div class="footer-col footer-contacto">
+        <p class="footer-inst">Universidad Nacional Autónoma de México</p>
+        <p><strong>Facultad de Ingeniería</strong></p>
+        <p>Av. Universidad 3000, Ciudad Universitaria,<br>Coyoacán, Cd. Mx., CP 04510</p>
+        <p><strong>Teléfono:</strong> 56 22 08 66</p>
+        <p><strong>Email:</strong> fainge@unam.mx</p>
+        <p class="footer-proyecto">Proyecto PAPIME PE101825 &middot; Convocatoria 2026</p>
+      </div>
+
+      <div class="footer-col footer-redes">
+        <p class="footer-siguenos">Síguenos</p>
+        <div class="footer-icons">
+          <a href="https://www.facebook.com/FacultadIngenieriaUNAM" target="_blank" rel="noopener" aria-label="Facebook">
+            <img src="img/redes/facebook.png" alt="Facebook FI UNAM">
+          </a>
+          <a href="https://x.com/FIUNAM_MX" target="_blank" rel="noopener" aria-label="X Twitter">
+            <img src="img/redes/twitter.png" alt="X Twitter FI UNAM">
+          </a>
+          <a href="https://www.youtube.com/user/TVIngenieria" target="_blank" rel="noopener" aria-label="YouTube">
+            <img src="img/redes/youtube.png" alt="YouTube FI UNAM">
+          </a>
+          <a href="http://www.instagram.com/fiunam_mx/" target="_blank" rel="noopener" aria-label="Instagram">
+            <img src="img/redes/instagram.png" alt="Instagram FI UNAM">
+          </a>
+        </div>
+        <a href="https://www.ingenieria.unam.mx/aviso_privacidad.php"
+           target="_blank" class="footer-aviso">Aviso de Privacidad</a>
+      </div>
+
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

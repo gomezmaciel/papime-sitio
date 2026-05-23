@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/x-icon" href="img/logos/favicon.ico">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Modelos 3D | PAPIME PE101825 · FI UNAM</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+  <style>
+    /* Tabs de categorías */
+    .tabs {
+      display: flex; flex-wrap: wrap; gap: 8px;
+      margin-bottom: 28px;
+    }
+    .tab-btn {
+      display: inline-flex; align-items: center; gap: 7px;
+      padding: 9px 18px; border-radius: 8px;
+      font-size: 13px; font-weight: 600;
+      cursor: pointer; border: 1px solid var(--gris-borde);
+      background: var(--blanco); color: var(--texto-sec);
+      transition: all 0.15s;
+    }
+    .tab-btn:hover { border-color: var(--azul-accent); color: var(--azul-accent); }
+    .tab-btn.active { background: var(--azul-accent); color: #fff; border-color: var(--azul-accent); }
+    .tab-btn i { font-size: 16px; }
+
+    /* Panel de modelos */
+    .tab-panel { display: none; }
+    .tab-panel.active { display: block; }
+
+    .modelos-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 16px;
+    }
+    .modelo-card {
+      background: var(--blanco);
+      border: 1px solid var(--gris-borde);
+      border-radius: 12px;
+      overflow: hidden;
+      transition: box-shadow 0.2s, border-color 0.2s;
+    }
+    .modelo-card:hover {
+      border-color: var(--azul-accent);
+      box-shadow: 0 4px 16px rgba(58,107,191,0.11);
+    }
+    .modelo-thumb {
+      width: 100%; height: 160px;
+      object-fit: cover; display: block;
+      background: #111;
+    }
+    .modelo-thumb-ph {
+      width: 100%; height: 160px;
+      background: #1e1e1e;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      gap: 8px; color: #555;
+    }
+    .modelo-thumb-ph i { font-size: 36px; }
+    .modelo-thumb-ph span { font-size: 11px; }
+    .modelo-info { padding: 12px 14px 14px; }
+    .modelo-nombre { font-size: 13.5px; font-weight: 700; margin-bottom: 4px; }
+    .modelo-desc   { font-size: 12px; color: var(--texto-sec); line-height: 1.5; margin-bottom: 10px; }
+    .btn-ver3d {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: var(--azul-oscuro); color: #fff;
+      padding: 7px 14px; border-radius: 6px;
+      font-size: 12px; font-weight: 600;
+      text-decoration: none;
+      transition: opacity 0.15s;
+    }
+    .btn-ver3d:hover { opacity: 0.85; }
+
+    @media (max-width: 600px) {
+      .modelos-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ══════════ TOPBAR ══════════ -->
+  <header class="topbar">
+    <div class="topbar-logos">
+      <img src="img/logos/facultadinge.png" alt="Facultad de Ingeniería UNAM" style="height:54px;width:auto;">
+    </div>
+    <div class="topbar-title">
+      <p class="proyecto-tag">Proyecto PAPIME PE101825</p>
+      <h1>Creación de un espacio inmersivo virtual con material educativo digital<br>
+          usando metaversos para la docencia de las Ciencias de la Tierra</h1>
+    </div>
+    <div class="topbar-logos">
+      <img src="img/logos/dgpalogo.png" alt="DGAPA UNAM" style="height:54px;width:auto;filter:brightness(0) invert(1);opacity:0.9;">
+    </div>
+  </header>
+
+  <!-- ══════════ NAVBAR ══════════ -->
+  <nav class="main-nav">
+    <a href="index.html">Inicio</a>
+    <a href="proyecto.html">Proyecto</a>
+    <a href="aulas-virtuales.html">Aulas virtuales</a>
+    <a href="practica-virtual.html">Multimedia</a>
+    <a href="modelos-3d.html" class="active">Modelos 3D</a>
+    <a href="manuales.html">Manuales</a>
+  </nav>
+
+  <!-- ══════════ HERO ══════════ -->
+  <div class="page-hero">
+    <p class="breadcrumb">Inicio &rsaquo; Modelos 3D</p>
+    <h2>Modelos 3D</h2>
+    <p class="hero-sub">Rocas · Minerales · Fauna marina y terrestre · Relieve · Equipo de campo</p>
+  </div>
+
+  <!-- ══════════ CONTENIDO ══════════ -->
+  <main class="container">
+
+    <!-- Tabs de categorías -->
+    <div class="tabs" role="tablist">
+      <button class="tab-btn active" onclick="showTab('rocas')" role="tab">
+        <i class="ti ti-cube"></i> Rocas
+      </button>
+      <button class="tab-btn" onclick="showTab('minerales')" role="tab">
+        <i class="ti ti-diamond"></i> Minerales
+      </button>
+      <button class="tab-btn" onclick="showTab('fauna-marina')" role="tab">
+        <i class="ti ti-fish"></i> Animales marinos
+      </button>
+      <button class="tab-btn" onclick="showTab('fauna-terrestre')" role="tab">
+        <i class="ti ti-paw"></i> Animales terrestres
+      </button>
+      <button class="tab-btn" onclick="showTab('relieve')" role="tab">
+        <i class="ti ti-mountain"></i> Formas del relieve
+      </button>
+      <button class="tab-btn" onclick="showTab('mobiliario')" role="tab">
+        <i class="ti ti-armchair"></i> Mobiliario
+      </button>
+      <button class="tab-btn" onclick="showTab('transporte')" role="tab">
+        <i class="ti ti-car"></i> Transporte
+      </button>
+      <button class="tab-btn" onclick="showTab('equipo')" role="tab">
+        <i class="ti ti-tools"></i> Equipo de campo
+      </button>
+    </div>
+
+    <!-- ── ROCAS ── -->
+    <div class="tab-panel active" id="panel-rocas">
+      <p class="section-label" style="margin-bottom:16px;">Rocas — Ígneas y Sedimentarias</p>
+      <div class="modelos-grid">
+
+        <!-- Subcategoría: Ígneas -->
+        <div class="modelo-card">
+          <div class="modelo-thumb-ph"><i class="ti ti-cube"></i><span>Vista previa 3D</span></div>
+          <div class="modelo-info">
+            <p class="modelo-nombre">Basalto</p>
+            <p class="modelo-desc">Roca ígnea extrusiva de origen volcánico</p>
+            <a class="btn-ver3d" href="#" target="_blank"><i class="ti ti-360"></i> Ver 3D</a>
+          </div>
+        </div>
+
+        <div class="modelo-card">
+          <div class="modelo-thumb-ph"><i class="ti ti-cube"></i><span>Vista previa 3D</span></div>
+          <div class="modelo-info">
+            <p class="modelo-nombre">Granito</p>
+            <p class="modelo-desc">Roca ígnea intrusiva de grano grueso</p>
+            <a class="btn-ver3d" href="#" target="_blank"><i class="ti ti-360"></i> Ver 3D</a>
+          </div>
+        </div>
+
+        <div class="modelo-card">
+          <div class="modelo-thumb-ph"><i class="ti ti-cube"></i><span>Vista previa 3D</span></div>
+          <div class="modelo-info">
+            <p class="modelo-nombre">Arenisca</p>
+            <p class="modelo-desc">Roca sedimentaria clástica de grano medio</p>
+            <a class="btn-ver3d" href="#" target="_blank"><i class="ti ti-360"></i> Ver 3D</a>
+          </div>
+        </div>
+
+        <div class="modelo-card">
+          <div class="modelo-thumb-ph"><i class="ti ti-cube"></i><span>Vista previa 3D</span></div>
+          <div class="modelo-info">
+            <p class="modelo-nombre">Caliza</p>
+            <p class="modelo-desc">Roca sedimentaria carbonatada de origen biogénico</p>
+            <a class="btn-ver3d" href="#" target="_blank"><i class="ti ti-360"></i> Ver 3D</a>
+          </div>
+        </div>
+
+        <!--
+          Agrega más modelos de rocas copiando el bloque anterior.
+          Cuando tengas capturas/thumbnails, reemplaza .modelo-thumb-ph por:
+          <img class="modelo-thumb" src="img/modelos/rocas/NOMBRE.jpg" alt="...">
+        -->
+      </div>
+    </div>
+
+    <!-- ── MINERALES ── -->
+    <div class="tab-panel" id="panel-minerales">
+      <p class="section-label" style="margin-bottom:16px;">Minerales</p>
+      <div class="modelos-grid">
+        <div class="modelo-card">
+          <div class="modelo-thumb-ph"><i class="ti ti-diamond"></i><span>Vista previa 3D</span></div>
+          <div class="modelo-info">
+            <p class="modelo-nombre">Fluorite</p>
+            <p class="modelo-desc">Mineral de haluro cálcico, sistema isométrico</p>
+            <a class="btn-ver3d" href="#" target="_blank"><i class="ti ti-360"></i> Ver 3D</a>
+          </div>
+        </div>
+        <!-- Agrega más minerales aquí -->
+      </div>
+    </div>
+
+    <!-- ── FAUNA MARINA ── -->
+    <div class="tab-panel" id="panel-fauna-marina">
+      <p class="section-label" style="margin-bottom:16px;">Animales marinos</p>
+      <div class="modelos-grid">
+        <div class="modelo-card">
+          <div class="modelo-thumb-ph"><i class="ti ti-fish"></i><span>Vista previa 3D</span></div>
+          <div class="modelo-info">
+            <p class="modelo-nombre">Modelo marino 1</p>
+            <p class="modelo-desc">Descripción del animal marino</p>
+            <a class="btn-ver3d" href="#" target="_blank"><i class="ti ti-360"></i> Ver 3D</a>
+          </div>
+        </div>
+        <!-- Agrega más modelos aquí -->
+      </div>
+    </div>
+
+    <!-- ── FAUNA TERRESTRE ── -->
+    <div class="tab-panel" id="panel-fauna-terrestre">
+      <p class="section-label" style="margin-bottom:16px;">Animales terrestres</p>
+      <div class="modelos-grid">
+        <div class="modelo-card">
+          <div class="modelo-thumb-ph"><i class="ti ti-paw"></i><span>Vista previa 3D</span></div>
+          <div class="modelo-info">
+            <p class="modelo-nombre">Modelo terrestre 1</p>
+            <p class="modelo-desc">Descripción del animal terrestre</p>
+            <a class="btn-ver3d" href="#" target="_blank"><i class="ti ti-360"></i> Ver 3D</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── FORMAS DEL RELIEVE ── -->
+    <div class="tab-panel" id="panel-relieve">
+      <p class="section-label" style="margin-bottom:16px;">Formas del relieve terrestre</p>
+      <div class="modelos-grid">
+        <div class="modelo-card">
+          <div class="modelo-thumb-ph"><i class="ti ti-mountain"></i><span>Vista previa 3D</span></div>
+          <div class="modelo-info">
+            <p class="modelo-nombre">Volcán</p>
+            <p class="modelo-desc">Estructura volcánica con cráter y ladera</p>
+            <a class="btn-ver3d" href="#" target="_blank"><i class="ti ti-360"></i> Ver 3D</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── MOBILIARIO ── -->
+    <div class="tab-panel" id="panel-mobiliario">
+      <p class="section-label" style="margin-bottom:16px;">Mobiliario</p>
+      <div class="modelos-grid">
+        <div class="modelo-card">
+          <div class="modelo-thumb-ph"><i class="ti ti-armchair"></i><span>Vista previa 3D</span></div>
+          <div class="modelo-info">
+            <p class="modelo-nombre">Mobiliario 1</p>
+            <p class="modelo-desc">Descripción del elemento de mobiliario</p>
+            <a class="btn-ver3d" href="#" target="_blank"><i class="ti ti-360"></i> Ver 3D</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── TRANSPORTE ── -->
+    <div class="tab-panel" id="panel-transporte">
+      <p class="section-label" style="margin-bottom:16px;">Transporte</p>
+      <div class="modelos-grid">
+        <div class="modelo-card">
+          <div class="modelo-thumb-ph"><i class="ti ti-car"></i><span>Vista previa 3D</span></div>
+          <div class="modelo-info">
+            <p class="modelo-nombre">Vehículo de campo</p>
+            <p class="modelo-desc">Vehículo usado en prácticas geológicas de campo</p>
+            <a class="btn-ver3d" href="#" target="_blank"><i class="ti ti-360"></i> Ver 3D</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── EQUIPO DE CAMPO ── -->
+    <div class="tab-panel" id="panel-equipo">
+      <p class="section-label" style="margin-bottom:16px;">Equipo de campo</p>
+      <div class="modelos-grid">
+        <div class="modelo-card">
+          <div class="modelo-thumb-ph"><i class="ti ti-tools"></i><span>Vista previa 3D</span></div>
+          <div class="modelo-info">
+            <p class="modelo-nombre">Brújula geológica</p>
+            <p class="modelo-desc">Instrumento para medición de rumbos y buzamientos</p>
+            <a class="btn-ver3d" href="#" target="_blank"><i class="ti ti-360"></i> Ver 3D</a>
+          </div>
+        </div>
+        <div class="modelo-card">
+          <div class="modelo-thumb-ph"><i class="ti ti-tools"></i><span>Vista previa 3D</span></div>
+          <div class="modelo-info">
+            <p class="modelo-nombre">Martillo geológico</p>
+            <p class="modelo-desc">Herramienta básica para muestreo de rocas</p>
+            <a class="btn-ver3d" href="#" target="_blank"><i class="ti ti-360"></i> Ver 3D</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- ══════════ FOOTER ══════════ -->
+  <footer>
+    <div class="footer-inner">
+
+      <div class="footer-col footer-logos">
+        <img src="img/logos/logofooter.png" alt="Facultad de Ingeniería UNAM" class="footer-logo-img">
+        <img src="img/logos/dgpalogo.png" alt="DGAPA UNAM" class="footer-logo-img footer-dgapa-img">
+      </div>
+
+      <div class="footer-col footer-contacto">
+        <p class="footer-inst">Universidad Nacional Autónoma de México</p>
+        <p><strong>Facultad de Ingeniería</strong></p>
+        <p>Av. Universidad 3000, Ciudad Universitaria,<br>Coyoacán, Cd. Mx., CP 04510</p>
+        <p><strong>Teléfono:</strong> 56 22 08 66</p>
+        <p><strong>Email:</strong> fainge@unam.mx</p>
+        <p class="footer-proyecto">Proyecto PAPIME PE101825 &middot; Convocatoria 2026</p>
+      </div>
+
+      <div class="footer-col footer-redes">
+        <p class="footer-siguenos">Síguenos</p>
+        <div class="footer-icons">
+          <a href="https://www.facebook.com/FacultadIngenieriaUNAM" target="_blank" rel="noopener" aria-label="Facebook">
+            <img src="img/redes/facebook.png" alt="Facebook FI UNAM">
+          </a>
+          <a href="https://x.com/FIUNAM_MX" target="_blank" rel="noopener" aria-label="X Twitter">
+            <img src="img/redes/twitter.png" alt="X Twitter FI UNAM">
+          </a>
+          <a href="https://www.youtube.com/user/TVIngenieria" target="_blank" rel="noopener" aria-label="YouTube">
+            <img src="img/redes/youtube.png" alt="YouTube FI UNAM">
+          </a>
+          <a href="http://www.instagram.com/fiunam_mx/" target="_blank" rel="noopener" aria-label="Instagram">
+            <img src="img/redes/instagram.png" alt="Instagram FI UNAM">
+          </a>
+        </div>
+        <a href="https://www.ingenieria.unam.mx/aviso_privacidad.php"
+           target="_blank" class="footer-aviso">Aviso de Privacidad</a>
+      </div>
+
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script>
+    function showTab(id) {
+      // Ocultar todos los paneles y desactivar todos los tabs
+      document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      // Activar el seleccionado
+      document.getElementById('panel-' + id).classList.add('active');
+      event.currentTarget.classList.add('active');
+    }
+  </script>
+</body>
+</html>
