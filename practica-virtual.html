@@ -19,8 +19,12 @@
     .estaciones-pendientes {
       display: flex;
       flex-direction: column;
-      gap: 24px;
-      margin-top: 24px;
+      gap: 40px;
+      margin-top: 40px;
+    }
+    /* Separación para estaciones fuera del contenedor flex */
+    #estacion-1, #estacion-2 {
+      margin-bottom: 40px;
     }
     /* Video de campo */
     .video-field {
@@ -44,6 +48,53 @@
     @media (max-width: 600px) {
       .stations-index { grid-template-columns: repeat(2, 1fr); }
     }
+
+    /* ── LIGHTBOX ── */
+    .lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.92);
+      z-index: 9999;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+    }
+    .lightbox.active { display: flex; }
+    .lightbox img {
+      max-width: 92vw;
+      max-height: 85vh;
+      object-fit: contain;
+      border-radius: 6px;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.6);
+    }
+    .lightbox-close {
+      position: absolute;
+      top: 16px; right: 20px;
+      background: none; border: none;
+      color: #fff; font-size: 32px;
+      cursor: pointer; line-height: 1;
+    }
+    .lightbox-close:hover { color: var(--azul-accent); }
+    .lightbox-btn {
+      position: absolute;
+      top: 50%; transform: translateY(-50%);
+      background: rgba(255,255,255,0.12);
+      border: none; color: #fff;
+      width: 48px; height: 48px;
+      border-radius: 50%;
+      font-size: 22px; cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      transition: background 0.15s;
+    }
+    .lightbox-btn:hover { background: var(--azul-accent); }
+    .lightbox-btn.prev { left: 16px; }
+    .lightbox-btn.next { right: 16px; }
+    .lightbox-counter {
+      color: #aaa; font-size: 13px; margin-top: 12px;
+    }
+    /* Cursor pointer en imágenes del carrusel */
+    .carousel-slide img { cursor: zoom-in; }
   </style>
 </head>
 <body>
@@ -285,8 +336,6 @@
     </section>
 
     <div class="estaciones-pendientes">
-
-      <section id="estacion-3" class="station-card">
 
       <section id="estacion-3" class="station-card">
         <div class="station-header">
@@ -764,7 +813,7 @@
 
   </main>
 
-  <div style="max-width:900px;margin:32px auto 0;padding:0 20px;">
+  <div style="max-width:900px;margin:24px auto 0;padding:0 20px;">
     <p style="font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#3a6bbf;margin-bottom:14px;">Material adicional</p>
     <div class="station-card">
       <div class="station-header">
@@ -856,10 +905,70 @@
     Carousel.init('track-e7', 'dots-e7', 'counter-e7');
     // Estación 8 — Cráter Tecuitlapa
     Carousel.init('track-e8', 'dots-e8', 'counter-e8');
+  </script>
 
-    // Cuando agregues más estaciones con fotos:
-    // Carousel.init('track-e3', 'dots-e3', 'counter-e3');
-    // ... etc.
+  <!-- ══ LIGHTBOX ══ -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-label="Imagen ampliada">
+    <button class="lightbox-close" onclick="closeLightbox()" aria-label="Cerrar">
+      <i class="ti ti-x"></i>
+    </button>
+    <button class="lightbox-btn prev" onclick="lbMove(-1)" aria-label="Anterior">
+      <i class="ti ti-chevron-left"></i>
+    </button>
+    <img id="lb-img" src="" alt="Imagen ampliada">
+    <p class="lightbox-counter" id="lb-counter"></p>
+    <button class="lightbox-btn next" onclick="lbMove(1)" aria-label="Siguiente">
+      <i class="ti ti-chevron-right"></i>
+    </button>
+  </div>
+
+  <script>
+    // ── Lightbox ──
+    let lbImages = [];
+    let lbIndex  = 0;
+
+    function openLightbox(img) {
+      // Recopilar todas las imágenes del carrusel de la misma estación
+      const track = img.closest('.carousel-track');
+      lbImages = Array.from(track.querySelectorAll('.carousel-slide img'));
+      lbIndex  = lbImages.indexOf(img);
+      updateLightbox();
+      document.getElementById('lightbox').classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox() {
+      document.getElementById('lightbox').classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    function lbMove(dir) {
+      lbIndex = (lbIndex + dir + lbImages.length) % lbImages.length;
+      updateLightbox();
+    }
+
+    function updateLightbox() {
+      const lb = document.getElementById('lb-img');
+      lb.src = lbImages[lbIndex].src;
+      lb.alt = lbImages[lbIndex].alt;
+      document.getElementById('lb-counter').textContent =
+        (lbIndex + 1) + ' / ' + lbImages.length;
+    }
+
+    // Cerrar con tecla Escape o clic en fondo
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape')      closeLightbox();
+      if (e.key === 'ArrowLeft')   lbMove(-1);
+      if (e.key === 'ArrowRight')  lbMove(1);
+    });
+    document.getElementById('lightbox').addEventListener('click', function(e) {
+      if (e.target === this) closeLightbox();
+    });
+
+    // Agregar onclick a todas las imágenes del carrusel
+    document.querySelectorAll('.carousel-slide img').forEach(img => {
+      img.addEventListener('click', () => openLightbox(img));
+    });
   </script>
 
 </body>
