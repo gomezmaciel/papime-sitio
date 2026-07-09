@@ -8,7 +8,6 @@
   <link rel="stylesheet" href="css/styles.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
   <style>
-    /* ── Participantes ── */
     .participantes-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
@@ -41,74 +40,36 @@
     }
     .participante-foto-ph i { font-size: 56px; color: rgba(255,255,255,0.35); }
     .participante-info { padding: 16px 18px 18px; }
-    .participante-nombre {
-      font-size: 14.5px;
-      font-weight: 700;
-      color: var(--texto-body);
-      margin-bottom: 3px;
-    }
-    .participante-rol {
-      font-size: 12px;
-      font-weight: 600;
-      color: var(--azul-accent);
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      margin-bottom: 10px;
-    }
-    .participante-lineas {
-      font-size: 12.5px;
-      color: var(--texto-sec);
-      line-height: 1.6;
-    }
-    .participante-lineas li {
-      list-style: none;
-      padding-left: 14px;
-      position: relative;
-      margin-bottom: 3px;
-    }
-    .participante-lineas li::before {
-      content: '·';
-      position: absolute; left: 0;
-      color: var(--azul-accent);
-      font-weight: 700;
-    }
-
-    /* ── Agradecimiento institucional ── */
-    .agradecimiento-box {
-      background: var(--azul-claro);
-      border: 1px solid var(--azul-border);
-      border-left: 4px solid var(--azul-accent);
-      border-radius: 10px;
-      padding: 22px 26px;
-      font-size: 14px;
-      color: var(--texto-sec);
-      line-height: 1.78;
-    }
+    .participante-nombre { font-size: 14.5px; font-weight: 700; color: var(--texto-body); margin-bottom: 3px; }
+    .participante-rol { font-size: 12px; font-weight: 600; color: var(--azul-accent); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 6px; }
+    .participante-email { font-size: 11.5px; color: var(--texto-muted); margin-bottom: 8px; }
+    .participante-email a { color: var(--azul-accent); text-decoration: none; }
+    .participante-email a:hover { text-decoration: underline; }
+    .participante-lineas { font-size: 12.5px; color: var(--texto-sec); line-height: 1.6; }
+    .participante-lineas li { list-style: none; padding-left: 14px; position: relative; margin-bottom: 3px; }
+    .participante-lineas li::before { content: '·'; position: absolute; left: 0; color: var(--azul-accent); font-weight: 700; }
+    .seccion-participantes { margin-top: 32px; }
+    .seccion-participantes h4 { font-size: 15px; font-weight: 600; color: var(--azul-oscuro); margin-bottom: 16px; padding-bottom: 8px; border-bottom: 2px solid var(--azul-accent); }
+    .agradecimiento-box { background: var(--azul-claro); border: 1px solid var(--azul-border); border-left: 4px solid var(--azul-accent); border-radius: 10px; padding: 22px 26px; font-size: 14px; color: var(--texto-sec); line-height: 1.78; }
     .agradecimiento-box strong { color: var(--azul-oscuro); font-weight: 700; }
-
-    @media (max-width: 600px) {
-      .participantes-grid { grid-template-columns: 1fr 1fr; }
-    }
+    @media (max-width: 600px) { .participantes-grid { grid-template-columns: 1fr 1fr; } }
   </style>
 </head>
 <body>
 
-  <!-- ══════════ TOPBAR ══════════ -->
   <header class="topbar">
     <div class="topbar-logos">
       <img src="img/logos/facultadinge.png" alt="Facultad de Ingeniería UNAM" style="height:54px;width:auto;">
     </div>
     <div class="topbar-title">
       <p class="proyecto-tag">Proyecto PAPIME PE101825</p>
-      <h1>Creación de un espacio inmersivo virtual con material educativo digital<br>
-          usando metaversos para la docencia de las Ciencias de la Tierra</h1>
+      <h1>Creación de un espacio inmersivo virtual con material educativo digital<br>usando metaversos para la docencia de las Ciencias de la Tierra</h1>
     </div>
     <div class="topbar-logos">
       <img src="img/logos/dgpalogo.png" alt="DGAPA UNAM" style="height:54px;width:auto;filter:brightness(0) invert(1);opacity:0.9;">
     </div>
   </header>
 
-  <!-- ══════════ NAVBAR ══════════ -->
   <nav class="main-nav">
     <a href="index.html">Inicio</a>
     <a href="proyecto.html" class="active">Proyecto</a>
@@ -118,45 +79,20 @@
     <a href="manuales.html">Manuales</a>
   </nav>
 
-  <!-- ══════════ HERO ══════════ -->
-  <div class="page-hero" style="
-    background-image: linear-gradient(rgba(26,39,68,0.72), rgba(26,39,68,0.72)),
-                      url('img/hero-proyecto.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;">
+  <div class="page-hero" style="background-image:linear-gradient(rgba(26,39,68,0.72),rgba(26,39,68,0.72)),url('img/hero-proyecto.jpg');background-size:cover;background-position:center;background-repeat:no-repeat;">
     <p class="breadcrumb">Inicio &rsaquo; Proyecto</p>
     <h2>Proyecto PAPIME PE101825</h2>
     <p class="hero-sub">Objetivo · Participantes · Agradecimientos</p>
   </div>
 
-  <!-- ══════════ CONTENIDO ══════════ -->
   <main class="container">
 
-    <!-- OBJETIVO -->
     <div class="content-card">
       <p class="section-label">Objetivo general</p>
       <h3>¿Qué es el proyecto PAPIME PE101825?</h3>
-      <p>
-        Desarrollar un espacio web educativo, inmersivo e innovador que integre una colección de
-        tres mundos virtuales o metaversos específicamente diseñados para el aprendizaje de las
-        Ciencias de la Tierra. Estos mundos virtuales estarán equipados con una amplia gama de
-        materiales digitales, que incluyen infografías, recorridos 360°, animaciones, videos y
-        modelos 3D, destinados a fortalecer la enseñanza.
-      </p>
-      <p class="mt-16">
-        El sitio web permite a profesores y estudiantes interactuar en tiempo real a través de
-        laptops, tabletas o teléfonos celulares, tanto en el aula como desde cualquier lugar
-        geográfico, ofreciendo una experiencia de aprendizaje más dinámica y enriquecedora.
-      </p>
-      <p class="mt-16">
-        Este recurso es fundamental para apoyar la enseñanza en asignaturas clave como
-        <strong>Geología General</strong>, <strong>Geología Física</strong>,
-        <strong>Petrología</strong>, <strong>Mineralogía</strong>,
-        <strong>Sedimentología</strong> y <strong>Geomorfología</strong> en las carreras de
-        Ciencias de la Tierra, así como en la asignatura de Geología para las carreras de
-        <strong>Ingeniería Ambiental</strong> e <strong>Ingeniería Civil</strong>.
-      </p>
+      <p>Desarrollar un espacio web educativo, inmersivo e innovador que integre una colección de tres mundos virtuales o metaversos específicamente diseñados para el aprendizaje de las Ciencias de la Tierra. Estos mundos virtuales estarán equipados con una amplia gama de materiales digitales, que incluyen infografías, recorridos 360°, animaciones, videos y modelos 3D, destinados a fortalecer la enseñanza.</p>
+      <p class="mt-16">El sitio web permite a profesores y estudiantes interactuar en tiempo real a través de laptops, tabletas o teléfonos celulares, tanto en el aula como desde cualquier lugar geográfico, ofreciendo una experiencia de aprendizaje más dinámica y enriquecedora.</p>
+      <p class="mt-16">Este recurso es fundamental para apoyar la enseñanza en asignaturas clave como <strong>Geología General</strong>, <strong>Geología Física</strong>, <strong>Petrología</strong>, <strong>Mineralogía</strong>, <strong>Sedimentología</strong> y <strong>Geomorfología</strong>, así como en <strong>Ingeniería Ambiental</strong> e <strong>Ingeniería Civil</strong>.</p>
       <div class="pills">
         <span class="pill">Geología General</span>
         <span class="pill">Geología Física</span>
@@ -169,109 +105,385 @@
       </div>
     </div>
 
-    <!-- PARTICIPANTES -->
+    <!-- ══ ACADÉMICOS PARTICIPANTES ══ -->
     <div class="mt-32" id="participantes">
-      <p class="section-label">Equipo de trabajo</p>
-      <h3 style="font-size:19px; font-weight:600; margin-bottom:20px;">Participantes</h3>
+      <p class="section-label">Equipo académico</p>
+      <h3 style="font-size:19px;font-weight:600;margin-bottom:8px;">Académicos participantes</h3>
 
-      <!--
-        ════════════════════════════════════════════
-        INSTRUCCIÓN PARA AGREGAR PARTICIPANTES:
-        Copia el bloque .participante-card y rellena:
-          - .participante-foto src="img/participantes/nombre.jpg"
-            (o deja el .participante-foto-ph si no hay foto)
-          - .participante-nombre  → nombre completo
-          - .participante-rol     → cargo / categoría
-          - .participante-lineas  → líneas de investigación o intereses
-        ════════════════════════════════════════════
-      -->
-      <div class="participantes-grid">
-
-        <!-- Participante 1 — Ing. Luis Bruno Garduño Castro -->
-        <div class="participante-card">
-          <img class="participante-foto"
-               src="img/participantes/GARDUNO_CASTRO.jpg"
-               alt="Ing. Luis Bruno Garduño Castro">
-          <div class="participante-info">
-            <p class="participante-nombre">Ing. Luis Bruno Garduño Castro</p>
-            <p class="participante-rol">Profesor de asignatura</p>
-            <ul class="participante-lineas">
-              <li>Levantamientos fotogramétricos con drones</li>
-              <li>Realidad Aumentada</li>
-              <li>Representación cartográfica</li>
-            </ul>
+      <div class="seccion-participantes">
+        <h4>Responsable del proyecto</h4>
+        <div class="participantes-grid">
+          <div class="participante-card">
+            <img class="participante-foto" src="img/participantes/Dra_Mayumy_Cabrera.jpg" alt="Dra. Mayumy Amparo Cabrera Ramírez">
+            <div class="participante-info">
+              <p class="participante-nombre">Dra. Mayumy Amparo Cabrera Ramírez</p>
+              <p class="participante-rol">Responsable · Técnica académica titular C</p>
+              <p class="participante-email">Dpto. de Geología, FI/UNAM<br><a href="mailto:mayumycr@unam.mx">mayumycr@unam.mx</a></p>
+              <ul class="participante-lineas">
+                <li>Erosión costera</li>
+                <li>Recursos submarinos</li>
+                <li>Sedimentología de zonas costeras</li>
+                <li>Modelado 3D y fotogrametría</li>
+                <li>Metaversos y aulas virtuales para la docencia</li>
+              </ul>
+            </div>
           </div>
         </div>
+      </div>
 
-        <!-- Participante 2 — Luis Andrés Salinas Omassi -->
-        <div class="participante-card">
-          <img class="participante-foto"
-               src="img/participantes/SALINAS_OMASSI.png"
-               alt="Luis Andrés Salinas Omassi">
-          <div class="participante-info">
-            <p class="participante-nombre">Luis Andrés Salinas Omassi</p>
-            <p class="participante-rol">Ingeniero Geólogo</p>
-            <ul class="participante-lineas">
-              <li>Música</li>
-              <li>Geología de campo</li>
-              <li>Remediación de zonas contaminadas</li>
-            </ul>
+      <div class="seccion-participantes">
+        <h4>Corresponsable del proyecto</h4>
+        <div class="participantes-grid">
+          <div class="participante-card">
+            <img class="participante-foto" src="img/participantes/Jesus_Ramirez_Ortega.jpg" alt="M.P. Jesús Ramírez Ortega">
+            <div class="participante-info">
+              <p class="participante-nombre">M.P. Jesús Ramírez Ortega</p>
+              <p class="participante-rol">Corresponsable · Técnico académico titular B</p>
+              <p class="participante-email">ICAT/UNAM<br><a href="mailto:jesus.ramirez@icat.unam.mx">jesus.ramirez@icat.unam.mx</a></p>
+              <ul class="participante-lineas">
+                <li>Diseño y evaluación de espacios educativos interactivos</li>
+                <li>Contenidos y plataformas informáticas de apoyo a la educación</li>
+              </ul>
+            </div>
           </div>
         </div>
+      </div>
 
-        <!-- Participante 3 — pendiente -->
-        <div class="participante-card" style="opacity:.5;">
-          <div class="participante-foto-ph">
-            <i class="ti ti-user"></i>
+      <div class="seccion-participantes">
+        <h4>Colaboradores · Facultad de Ingeniería, UNAM</h4>
+        <div class="participantes-grid">
+
+          <div class="participante-card">
+            <img class="participante-foto" src="img/participantes/SALINAS_OMASSI.png" alt="M.C. Luis Andrés Salinas Omassi">
+            <div class="participante-info">
+              <p class="participante-nombre">M.C. Luis Andrés Salinas Omassi</p>
+              <p class="participante-rol">Profesor de asignatura A · Dpto. de Geología</p>
+              <p class="participante-email"><a href="mailto:andru.omassi@gmail.com">andru.omassi@gmail.com</a></p>
+              <ul class="participante-lineas">
+                <li>Análisis costero: erosión, transporte y acumulación de sedimentos</li>
+                <li>Impacto del oleaje y tsunamis en el Pacífico Mexicano</li>
+                <li>Geotecnologías aplicadas al análisis geomorfológico</li>
+              </ul>
+            </div>
           </div>
-          <div class="participante-info">
-            <p class="participante-nombre">Próximamente</p>
-            <p class="participante-rol">—</p>
+
+          <div class="participante-card">
+            <img class="participante-foto" src="img/participantes/GARDUNO_CASTRO.jpg" alt="Dr. Luis Bruno Garduño Castro">
+            <div class="participante-info">
+              <p class="participante-nombre">Dr. Luis Bruno Garduño Castro</p>
+              <p class="participante-rol">Profesor de asignatura A · Dpto. Fotogrametría, DICYG</p>
+              <ul class="participante-lineas">
+                <li>Levantamiento fotogramétrico con drones</li>
+                <li>Realidad aumentada</li>
+                <li>Representación cartográfica</li>
+              </ul>
+            </div>
           </div>
+
+          <div class="participante-card">
+            <img class="participante-foto" src="img/participantes/MC_Sergio_Salinas.jpg" alt="M. en C. Sergio Salinas Sánchez">
+            <div class="participante-info">
+              <p class="participante-nombre">M. en C. Sergio Salinas Sánchez</p>
+              <p class="participante-rol">Profesor de asignatura · FFyL/UNAM</p>
+              <p class="participante-email"><a href="mailto:sergiosalinas@filos.unam.mx">sergiosalinas@filos.unam.mx</a></p>
+              <ul class="participante-lineas">
+                <li>Geomorfología estructural</li>
+                <li>Dinámica del relieve terrestre</li>
+                <li>Sistemas de Información Geográfica (SIGs)</li>
+              </ul>
+            </div>
+          </div>
+
         </div>
+      </div>
 
-        <!-- Participante 4 — pendiente -->
-        <div class="participante-card" style="opacity:.5;">
-          <div class="participante-foto-ph">
-            <i class="ti ti-user"></i>
+      <div class="seccion-participantes">
+        <h4>Colaboradores · ICAT, UNAM</h4>
+        <div class="participantes-grid">
+
+          <div class="participante-card">
+            <div class="participante-foto-ph"><i class="ti ti-user"></i></div>
+            <div class="participante-info">
+              <p class="participante-nombre">M.D.I. Alethia Patricia Estrella Ruíz</p>
+              <p class="participante-rol">Técnica académica asociada C</p>
+              <p class="participante-email"><a href="mailto:alethia.estrella@icat.unam.mx">alethia.estrella@icat.unam.mx</a></p>
+              <ul class="participante-lineas">
+                <li>Administración de servidores Linux</li>
+                <li>Seguridad para servidores web</li>
+                <li>TIC para automatización de procesos</li>
+              </ul>
+            </div>
           </div>
-          <div class="participante-info">
-            <p class="participante-nombre">Próximamente</p>
-            <p class="participante-rol">—</p>
+
+          <div class="participante-card">
+            <img class="participante-foto" src="img/participantes/edcel_fuerte.jpeg" alt="M.D.I. Edcel Fuerte Martínez">
+            <div class="participante-info">
+              <p class="participante-nombre">M.D.I. Edcel Fuerte Martínez</p>
+              <p class="participante-rol">Técnico académico asociado C</p>
+              <p class="participante-email"><a href="mailto:edcel.fuerte@icat.unam.mx">edcel.fuerte@icat.unam.mx</a></p>
+              <ul class="participante-lineas">
+                <li>Administración de servidores Linux</li>
+                <li>Seguridad para servidores web</li>
+                <li>TIC para automatización de procesos</li>
+              </ul>
+            </div>
           </div>
+
+          <div class="participante-card">
+            <img class="participante-foto" src="img/participantes/Gustavo_-Cruz_Martinez.jpg" alt="Dr. Gustavo de la Cruz Martínez">
+            <div class="participante-info">
+              <p class="participante-nombre">Dr. Gustavo de la Cruz Martínez</p>
+              <p class="participante-rol">Técnico académico titular C</p>
+              <p class="participante-email"><a href="mailto:gustavo.delacruz@icat.unam.mx">gustavo.delacruz@icat.unam.mx</a></p>
+              <ul class="participante-lineas">
+                <li>Diseño y evaluación de experiencia del usuario (UX)</li>
+                <li>Modelado cognitivo del usuario</li>
+                <li>Espacios interactivos y educación no formal</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="participante-card">
+            <img class="participante-foto" src="img/participantes/Ana_Libia_Eslava_Cervantes.jpg" alt="M.D.A. Ana Libia Eslava Cervantes">
+            <div class="participante-info">
+              <p class="participante-nombre">M.D.A. Ana Libia Eslava Cervantes</p>
+              <p class="participante-rol">Técnica académica titular A</p>
+              <p class="participante-email"><a href="mailto:libia.eslava@icat.unam.mx">libia.eslava@icat.unam.mx</a></p>
+              <ul class="participante-lineas">
+                <li>Diseño y evaluación de experiencia del usuario</li>
+                <li>Espacios interactivos y educación no formal</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="participante-card">
+            <img class="participante-foto" src="img/participantes/Ricardo_Castaneda_Martinez.jpg" alt="Dr. Ricardo Castañeda Martínez">
+            <div class="participante-info">
+              <p class="participante-nombre">Dr. Ricardo Castañeda Martínez</p>
+              <p class="participante-rol">Técnico académico titular A</p>
+              <p class="participante-email"><a href="mailto:ricardo.castaneda@icat.unam.mx">ricardo.castaneda@icat.unam.mx</a></p>
+              <ul class="participante-lineas">
+                <li>Diseño y evaluación de espacios educativos interactivos</li>
+                <li>Contenidos y plataformas de apoyo a la educación</li>
+                <li>Didáctica e innovación de productos educativos</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="participante-card">
+            <img class="participante-foto" src="img/participantes/Antonio_Domingues_Hernandez.jpg" alt="Dr. J. Antonio Domínguez Hernández">
+            <div class="participante-info">
+              <p class="participante-nombre">Dr. J. Antonio Domínguez Hernández</p>
+              <p class="participante-rol">Técnico académico titular C</p>
+              <p class="participante-email"><a href="mailto:antonio.dominguez@icat.unam.mx">antonio.dominguez@icat.unam.mx</a></p>
+              <ul class="participante-lineas">
+                <li>Competencias digitales para la docencia y divulgación</li>
+                <li>Contenidos y plataformas de apoyo a la educación</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="participante-card" style="opacity:.5;">
+            <div class="participante-foto-ph"><i class="ti ti-user"></i></div>
+            <div class="participante-info">
+              <p class="participante-nombre">Próximamente</p>
+              <p class="participante-rol">—</p>
+            </div>
+          </div>
+
         </div>
+      </div>
+    </div>
 
-      </div><!-- /participantes-grid -->
+    <!-- ══ ALUMNOS PARTICIPANTES ══ -->
+    <div class="mt-32" id="alumnos">
+      <p class="section-label">Alumnos participantes</p>
+      <h3 style="font-size:19px;font-weight:600;margin-bottom:8px;">Estudiantes colaboradores</h3>
+
+      <div class="seccion-participantes">
+        <h4>Desarrollo y tecnología</h4>
+        <div class="participantes-grid">
+
+          <div class="participante-card">
+            <img class="participante-foto" src="img/participantes/Octavio.jpg" alt="Octavio Ortega Novoa">
+            <div class="participante-info">
+              <p class="participante-nombre">Octavio Ortega Novoa</p>
+              <p class="participante-rol">Ing. en Computación · FI/UNAM</p>
+              <ul class="participante-lineas">
+                <li>Desarrollo de videojuegos</li>
+                <li>Inteligencia artificial</li>
+                <li>Ajedrez</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="participante-card">
+            <img class="participante-foto" src="img/participantes/Carlos_Eduardo.jpg" alt="Carlos Eduardo Vences Santillán">
+            <div class="participante-info">
+              <p class="participante-nombre">Carlos Eduardo Vences Santillán</p>
+              <p class="participante-rol">Ing. en Computación · FI/UNAM</p>
+              <ul class="participante-lineas">
+                <li>Gestión de proyectos</li>
+                <li>Creación de software interactivo</li>
+                <li>Gastronomía, música y expresión cultural</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="participante-card">
+            <img class="participante-foto" src="img/participantes/Sebastian.jpg" alt="Sebastián Buendía López">
+            <div class="participante-info">
+              <p class="participante-nombre">Sebastián Buendía López</p>
+              <p class="participante-rol">Ing. en Computación · FI/UNAM</p>
+              <ul class="participante-lineas">
+                <li>Desarrollo de videojuegos e IA</li>
+                <li>Composición musical</li>
+                <li>Literatura</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="participante-card" style="opacity:.5;">
+            <div class="participante-foto-ph"><i class="ti ti-user"></i></div>
+            <div class="participante-info">
+              <p class="participante-nombre">Próximamente</p>
+              <p class="participante-rol">—</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="seccion-participantes">
+        <h4>Diseño y ciencias</h4>
+        <div class="participantes-grid">
+
+          <div class="participante-card">
+            <img class="participante-foto" src="img/participantes/DIANA.jpg" alt="Diana Alejandra Sánchez Yáñez">
+            <div class="participante-info">
+              <p class="participante-nombre">Diana Alejandra Sánchez Yáñez</p>
+              <p class="participante-rol">Arquitectura · FA/UNAM</p>
+              <ul class="participante-lineas">
+                <li>Diseño y modelado 3D</li>
+                <li>Lectura y dibujo</li>
+                <li>Ejercicio</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="participante-card">
+            <img class="participante-foto" src="img/participantes/Cynthia.jpg" alt="Cinthya Merari González Romero">
+            <div class="participante-info">
+              <p class="participante-nombre">Cinthya Merari González Romero</p>
+              <p class="participante-rol">Geografía · FFyL/UNAM</p>
+              <ul class="participante-lineas">
+                <li>Geomorfología y Geología</li>
+                <li>Dibujo científico</li>
+                <li>Artes en general</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="participante-card" style="opacity:.5;">
+            <div class="participante-foto-ph"><i class="ti ti-user"></i></div>
+            <div class="participante-info">
+              <p class="participante-nombre">Próximamente</p>
+              <p class="participante-rol">—</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="seccion-participantes">
+        <h4>Creación de contenido y redes sociales</h4>
+        <div class="participantes-grid">
+
+          <div class="participante-card">
+            <img class="participante-foto" src="img/participantes/Marcos_Jaramillo.jpg" alt="Marcos Jaramillo">
+            <div class="participante-info">
+              <p class="participante-nombre">Marcos Jaramillo</p>
+              <p class="participante-rol">FI/UNAM</p>
+              <ul class="participante-lineas">
+                <li>CEO de Socram Stories</li>
+                <li><a href="https://instagram.com/marcos.jaramillo" target="_blank" style="color:var(--azul-accent);">@marcos.jaramillo</a></li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="participante-card">
+            <img class="participante-foto" src="img/participantes/Ayelen_Suarez_Vivas.jpg" alt="Ayelén Suárez Vivas">
+            <div class="participante-info">
+              <p class="participante-nombre">Ayelén Suárez Vivas</p>
+              <p class="participante-rol">FI/UNAM</p>
+              <ul class="participante-lineas">
+                <li>Diseñadora gráfica</li>
+                <li>Storyteller</li>
+                <li><a href="https://instagram.com/aye_suarez" target="_blank" style="color:var(--azul-accent);">@aye_suarez</a></li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="participante-card">
+            <img class="participante-foto" src="img/participantes/Mauricio_Jaramillo.jpg" alt="Mauricio Jaramillo">
+            <div class="participante-info">
+              <p class="participante-nombre">Mauricio Jaramillo</p>
+              <p class="participante-rol">FI/UNAM</p>
+              <ul class="participante-lineas">
+                <li>Manejo de redes sociales</li>
+                <li>Story Maker</li>
+                <li>Contenido audiovisual</li>
+                <li><a href="https://instagram.com/mauriciocabrera_ig" target="_blank" style="color:var(--azul-accent);">@mauriciocabrera_ig</a></li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="participante-card">
+            <img class="participante-foto" src="img/participantes/Juan_Baysse.jpg" alt="Juan Bayssé">
+            <div class="participante-info">
+              <p class="participante-nombre">Juan Bayssé</p>
+              <p class="participante-rol">FI/UNAM</p>
+              <ul class="participante-lineas">
+                <li>Editor profesional de video</li>
+                <li>Diseño</li>
+                <li><a href="https://instagram.com/juanbyss" target="_blank" style="color:var(--azul-accent);">@juanbyss</a></li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="participante-card" style="opacity:.5;">
+            <div class="participante-foto-ph"><i class="ti ti-user"></i></div>
+            <div class="participante-info">
+              <p class="participante-nombre">Próximamente</p>
+              <p class="participante-rol">—</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
     </div>
 
     <!-- AGRADECIMIENTOS -->
     <div class="content-card mt-32" id="agradecimientos">
       <p class="section-label">Agradecimientos</p>
       <h3>Apoyo institucional</h3>
-      <p class="mt-8">
-        Este proyecto fue posible gracias al apoyo de la Dirección General de Asuntos
-        del Personal Académico de la Universidad Nacional Autónoma de México.
-      </p>
+      <p class="mt-8">Este proyecto fue posible gracias al apoyo de la Dirección General de Asuntos del Personal Académico de la Universidad Nacional Autónoma de México.</p>
       <div class="agradecimiento-box mt-16">
         A la <strong>Dirección General de Asuntos del Personal Académico de la UNAM</strong>
         por el apoyo al proyecto <strong>PAPIME PE101825</strong> —
-        <em>Creación de un espacio inmersivo virtual con material educativo digital
-        usando metaversos para la docencia de las Ciencias de la Tierra</em> —
+        <em>Creación de un espacio inmersivo virtual con material educativo digital usando metaversos para la docencia de las Ciencias de la Tierra</em> —
         aprobado en la convocatoria <strong>2026</strong>.
       </div>
     </div>
 
   </main>
 
-  <!-- ══════════ FOOTER ══════════ -->
   <footer>
     <div class="footer-inner">
-
       <div class="footer-col footer-logos">
         <img src="img/logos/logofooter.png" alt="Facultad de Ingeniería UNAM" class="footer-logo-img">
         <img src="img/logos/dgpalogo.png" alt="DGAPA UNAM" class="footer-logo-img footer-dgapa-img">
       </div>
-
       <div class="footer-col footer-contacto">
         <p class="footer-inst">Universidad Nacional Autónoma de México</p>
         <p><strong>Facultad de Ingeniería</strong></p>
@@ -280,27 +492,16 @@
         <p><strong>Email:</strong> fainge@unam.mx</p>
         <p class="footer-proyecto">Proyecto PAPIME PE101825 &middot; Convocatoria 2026</p>
       </div>
-
       <div class="footer-col footer-redes">
         <p class="footer-siguenos">Síguenos</p>
         <div class="footer-icons">
-          <a href="https://www.facebook.com/FacultadIngenieriaUNAM" target="_blank" rel="noopener" aria-label="Facebook">
-            <img src="img/redes/facebook.png" alt="Facebook FI UNAM">
-          </a>
-          <a href="https://x.com/FIUNAM_MX" target="_blank" rel="noopener" aria-label="X Twitter">
-            <img src="img/redes/twitter.png" alt="X Twitter FI UNAM">
-          </a>
-          <a href="https://www.youtube.com/user/TVIngenieria" target="_blank" rel="noopener" aria-label="YouTube">
-            <img src="img/redes/youtube.png" alt="YouTube FI UNAM">
-          </a>
-          <a href="http://www.instagram.com/fiunam_mx/" target="_blank" rel="noopener" aria-label="Instagram">
-            <img src="img/redes/instagram.png" alt="Instagram FI UNAM">
-          </a>
+          <a href="https://www.facebook.com/FacultadIngenieriaUNAM" target="_blank" rel="noopener"><img src="img/redes/facebook.png" alt="Facebook FI UNAM"></a>
+          <a href="https://x.com/FIUNAM_MX" target="_blank" rel="noopener"><img src="img/redes/twitter.png" alt="X Twitter FI UNAM"></a>
+          <a href="https://www.youtube.com/user/TVIngenieria" target="_blank" rel="noopener"><img src="img/redes/youtube.png" alt="YouTube FI UNAM"></a>
+          <a href="http://www.instagram.com/fiunam_mx/" target="_blank" rel="noopener"><img src="img/redes/instagram.png" alt="Instagram FI UNAM"></a>
         </div>
-        <a href="https://www.ingenieria.unam.mx/aviso_privacidad.php"
-           target="_blank" class="footer-aviso">Aviso de Privacidad</a>
+        <a href="https://www.ingenieria.unam.mx/aviso_privacidad.php" target="_blank" class="footer-aviso">Aviso de Privacidad</a>
       </div>
-
     </div>
   </footer>
 
