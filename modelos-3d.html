@@ -75,6 +75,54 @@
     @media (max-width: 600px) {
       .modelos-grid { grid-template-columns: repeat(2, 1fr); }
     }
+
+    /* Imágenes de fichas (formas del relieve) */
+    .relieve-img { cursor: zoom-in; }
+
+    /* ── LIGHTBOX ── */
+    .lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.92);
+      z-index: 9999;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+    }
+    .lightbox.active { display: flex; }
+    .lightbox img {
+      max-width: 92vw;
+      max-height: 85vh;
+      object-fit: contain;
+      border-radius: 6px;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.6);
+    }
+    .lightbox-close {
+      position: absolute;
+      top: 16px; right: 20px;
+      background: none; border: none;
+      color: #fff; font-size: 32px;
+      cursor: pointer; line-height: 1;
+    }
+    .lightbox-close:hover { color: var(--azul-accent); }
+    .lightbox-btn {
+      position: absolute;
+      top: 50%; transform: translateY(-50%);
+      background: rgba(255,255,255,0.12);
+      border: none; color: #fff;
+      width: 48px; height: 48px;
+      border-radius: 50%;
+      font-size: 22px; cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      transition: background 0.15s;
+    }
+    .lightbox-btn:hover { background: var(--azul-accent); }
+    .lightbox-btn.prev { left: 16px; }
+    .lightbox-btn.next { right: 16px; }
+    .lightbox-counter {
+      color: #aaa; font-size: 13px; margin-top: 12px;
+    }
   </style>
 </head>
 <body>
@@ -335,6 +383,79 @@
     <div class="tab-panel" id="panel-relieve">
       <p class="section-label" style="margin-bottom:16px;">Formas del relieve terrestre</p>
       <div class="modelos-grid">
+
+        <div class="modelo-card">
+          <img class="modelo-thumb relieve-img" src="img/relieve/abanico-aluvial.png" alt="Abanico Aluvial">
+          <div class="modelo-info">
+            <p class="modelo-nombre">Abanico Aluvial</p>
+            <p class="modelo-desc">Acumulación de sedimentos en forma de abanico al pie de una ladera montañosa</p>
+            <button class="btn-ver3d" style="border:none;cursor:pointer;" onclick="openRelieveLightbox(this)"><i class="ti ti-zoom-in"></i> Ver ficha completa</button>
+          </div>
+        </div>
+
+        <div class="modelo-card">
+          <img class="modelo-thumb relieve-img" src="img/relieve/acantilado-costero.png" alt="Acantilado Costero">
+          <div class="modelo-info">
+            <p class="modelo-nombre">Acantilado Costero</p>
+            <p class="modelo-desc">Elevación abrupta del terreno formada por la erosión marina y el retroceso costero</p>
+            <button class="btn-ver3d" style="border:none;cursor:pointer;" onclick="openRelieveLightbox(this)"><i class="ti ti-zoom-in"></i> Ver ficha completa</button>
+          </div>
+        </div>
+
+        <div class="modelo-card">
+          <img class="modelo-thumb relieve-img" src="img/relieve/barra-litoral.png" alt="Barra Litoral">
+          <div class="modelo-info">
+            <p class="modelo-nombre">Barra Litoral</p>
+            <p class="modelo-desc">Acumulación de arena por transporte litoral que cierra parcialmente una laguna costera</p>
+            <button class="btn-ver3d" style="border:none;cursor:pointer;" onclick="openRelieveLightbox(this)"><i class="ti ti-zoom-in"></i> Ver ficha completa</button>
+          </div>
+        </div>
+
+        <div class="modelo-card">
+          <img class="modelo-thumb relieve-img" src="img/relieve/delta-amazonas.png" alt="Delta del Amazonas">
+          <div class="modelo-info">
+            <p class="modelo-nombre">Delta del Amazonas</p>
+            <p class="modelo-desc">Delta en abanico formado por la división del cauce en múltiples brazos al desembocar en el mar</p>
+            <button class="btn-ver3d" style="border:none;cursor:pointer;" onclick="openRelieveLightbox(this)"><i class="ti ti-zoom-in"></i> Ver ficha completa</button>
+          </div>
+        </div>
+
+        <div class="modelo-card">
+          <img class="modelo-thumb relieve-img" src="img/relieve/playa-arenosa-tropical.png" alt="Playa Arenosa Tropical">
+          <div class="modelo-info">
+            <p class="modelo-nombre">Playa Arenosa Tropical</p>
+            <p class="modelo-desc">Playa de baja pendiente, arena fina y aguas turquesas — tipo Cancún</p>
+            <button class="btn-ver3d" style="border:none;cursor:pointer;" onclick="openRelieveLightbox(this)"><i class="ti ti-zoom-in"></i> Ver ficha completa</button>
+          </div>
+        </div>
+
+        <div class="modelo-card">
+          <img class="modelo-thumb relieve-img" src="img/relieve/playa-mediterranea.png" alt="Playa Mediterránea">
+          <div class="modelo-info">
+            <p class="modelo-nombre">Playa Mediterránea</p>
+            <p class="modelo-desc">Playa gravosa al pie de acantilados, con oleaje moderado a fuerte</p>
+            <button class="btn-ver3d" style="border:none;cursor:pointer;" onclick="openRelieveLightbox(this)"><i class="ti ti-zoom-in"></i> Ver ficha completa</button>
+          </div>
+        </div>
+
+        <div class="modelo-card">
+          <img class="modelo-thumb relieve-img" src="img/relieve/rio-meandrico.png" alt="Río Meándrico">
+          <div class="modelo-info">
+            <p class="modelo-nombre">Río Meándrico</p>
+            <p class="modelo-desc">Cauce sinuoso con barras de meandro, márgenes erosivas y llanura de inundación</p>
+            <button class="btn-ver3d" style="border:none;cursor:pointer;" onclick="openRelieveLightbox(this)"><i class="ti ti-zoom-in"></i> Ver ficha completa</button>
+          </div>
+        </div>
+
+        <div class="modelo-card">
+          <img class="modelo-thumb relieve-img" src="img/relieve/rio-trenzado.png" alt="Río Trenzado">
+          <div class="modelo-info">
+            <p class="modelo-nombre">Río Trenzado</p>
+            <p class="modelo-desc">Múltiples canales entrelazados con barras sedimentarias en ambiente de baja pendiente</p>
+            <button class="btn-ver3d" style="border:none;cursor:pointer;" onclick="openRelieveLightbox(this)"><i class="ti ti-zoom-in"></i> Ver ficha completa</button>
+          </div>
+        </div>
+
         <div class="modelo-card">
           <div class="modelo-thumb-ph"><i class="ti ti-mountain"></i><span>Vista previa 3D</span></div>
           <div class="modelo-info">
@@ -343,6 +464,7 @@
             <a class="btn-ver3d" href="#" target="_blank"><i class="ti ti-360"></i> Ver 3D</a>
           </div>
         </div>
+
       </div>
     </div>
 
@@ -442,6 +564,21 @@
     </div>
   </footer>
 
+  <!-- ══ LIGHTBOX (fichas de relieve) ══ -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-label="Ficha ampliada">
+    <button class="lightbox-close" onclick="closeLightbox()" aria-label="Cerrar">
+      <i class="ti ti-x"></i>
+    </button>
+    <button class="lightbox-btn prev" onclick="lbMove(-1)" aria-label="Anterior">
+      <i class="ti ti-chevron-left"></i>
+    </button>
+    <img id="lb-img" src="" alt="Ficha ampliada">
+    <p class="lightbox-counter" id="lb-counter"></p>
+    <button class="lightbox-btn next" onclick="lbMove(1)" aria-label="Siguiente">
+      <i class="ti ti-chevron-right"></i>
+    </button>
+  </div>
+
   <script src="js/main.js"></script>
   <script>
     function showTab(id) {
@@ -452,6 +589,46 @@
       document.getElementById('panel-' + id).classList.add('active');
       event.currentTarget.classList.add('active');
     }
+
+    // ── Lightbox de fichas de relieve ──
+    let lbImages = [];
+    let lbIndex  = 0;
+
+    function openRelieveLightbox(btn) {
+      lbImages = Array.from(document.querySelectorAll('#panel-relieve .relieve-img'));
+      const img = btn.closest('.modelo-card').querySelector('.relieve-img');
+      lbIndex   = lbImages.indexOf(img);
+      updateLightbox();
+      document.getElementById('lightbox').classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox() {
+      document.getElementById('lightbox').classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    function lbMove(dir) {
+      lbIndex = (lbIndex + dir + lbImages.length) % lbImages.length;
+      updateLightbox();
+    }
+
+    function updateLightbox() {
+      const lb = document.getElementById('lb-img');
+      lb.src = lbImages[lbIndex].src;
+      lb.alt = lbImages[lbIndex].alt;
+      document.getElementById('lb-counter').textContent =
+        (lbIndex + 1) + ' / ' + lbImages.length;
+    }
+
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape')     closeLightbox();
+      if (e.key === 'ArrowLeft')  lbMove(-1);
+      if (e.key === 'ArrowRight') lbMove(1);
+    });
+    document.getElementById('lightbox').addEventListener('click', function(e) {
+      if (e.target === this) closeLightbox();
+    });
   </script>
 </body>
 </html>
